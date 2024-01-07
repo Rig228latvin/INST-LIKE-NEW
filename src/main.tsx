@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Authorization from './pages/Authorization'
+import Profile from './pages/Profile'
 import Registration from './pages/Registration'
 
 const router = createBrowserRouter([
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
 	{
 		path: '/registr',
 		element: <Registration />,
+	},
+	{
+		path: '/profile/?session=?',
+		element: <Profile />,
 	},
 ])
 

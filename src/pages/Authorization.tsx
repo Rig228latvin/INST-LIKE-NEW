@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router'
+import { signin } from '~/api/auth'
 import InputField from '~/components/InputFields'
 import NavigationLink from '~/components/NavigationLink'
 import SubmitButton from '~/components/SubmitButton'
@@ -6,9 +8,11 @@ import SubmitButton from '~/components/SubmitButton'
 const Authorization: React.FC = () => {
 	const [username, setUsername] = useState('')
 	const [password, setPassword] = useState('')
+	const navigate = useNavigate()
 
-	const handleSubmit = () => {
-		// Логика отправки данных формы
+	const handleSubmit = async () => {
+		const session = await signin(username, password)
+		navigate(`profile?session=${session}`)
 	}
 
 	return (
