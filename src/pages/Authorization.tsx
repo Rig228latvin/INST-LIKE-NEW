@@ -18,32 +18,32 @@ const Authorization: React.FC = () => {
 	return (
 		<div className='flex justify-center items-center h-screen'>
 			<form className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'>
-				<h2 className='text-2xl mb-4 font-bold text-center'>Authorization</h2>
+				<h2 className='text-2xl mb-4 font-bold text-center'>Авторизация</h2>
 				<div className='mb-4'>
 					<InputField
-						label='Username'
+						label='Логин'
 						type='username'
 						value={username}
-						placeholder='Your username'
+						placeholder='логин'
 						onChange={value => setUsername(value)}
 					/>
 				</div>
 				<div className='mb-6'>
 					<InputField
-						label='Password'
+						label='Пароль'
 						type='password'
 						value={password}
 						onChange={value => setPassword(value)}
-						placeholder='Enter your password'
+						placeholder='Введите пароль'
 					/>
 				</div>
 				<div className='flex items-center justify-center'>
-					<SubmitButton text='Submit' onClick={handleSubmit} />
+					<SubmitButton onClick={handleSubmit}>Войти</SubmitButton>
 				</div>
 				<div className='hover:underline underline-offset-1'>
 					<NavigationLink
 						path='/registr'
-						name={`Don't have an account? Register!`}
+						name={'Нету аккаунта? Зарегистрируйтесь!'}
 					/>
 				</div>
 			</form>
