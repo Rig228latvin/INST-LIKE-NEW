@@ -3,10 +3,13 @@ import { useSearchParams } from 'react-router-dom'
 import { getUserBySession } from '~/api/auth'
 import { Sidebar } from '~/components/Sidebar'
 import SubmitButton from '~/components/SubmitButton'
-import { User } from '~/models/user'
+import Picture from '~/components/profileComponents/picture'
+import { mockPostsList } from '~/models/post'
+import { User, mockUser } from '~/models/user'
+import PostsList from './PostsList'
 
 const Profile: FC = () => {
-	const [user, setUser] = useState<User | null>(null)
+	const [user, setUser] = useState<User | null>(mockUser)
 	const [code, setCode] = useState<number>()
 
 	const [searchParams] = useSearchParams()
@@ -34,11 +37,7 @@ const Profile: FC = () => {
 
 			{user && (
 				<div className='flex gap-4 p-4'>
-					<img
-						className='max-h-[250px] min-w-[250px] object-cover p-8 rounded-full'
-						src={`http://92.51.45.202:8000/image?username=${user.username}`}
-						alt={`${code}`}
-					/>
+					<Picture username={'3123'} code={0} />
 					<div className='flex flex-col gap-4'>
 						<div className='flex h-14 whitespace-nowrap gap-2 items-center'>
 							<span className='font-bold text-3xl'>{user.username}</span>
@@ -63,6 +62,7 @@ const Profile: FC = () => {
 				</div>
 			)}
 			<div></div>
+			<PostsList posts={mockPostsList} />
 		</div>
 	)
 }
